@@ -596,8 +596,8 @@ add_packages() {
 add_getdomains() {
     echo "Choose you country"
     echo "Select:"
-    echo "1) Russia inside. (No Youtube, using zapret script ( remittor ) for openwrt)"
-    echo "2) Russia inside. (Youtube, using script itdog)"
+    echo "1) Russia inside. (No Youtube and discord, using zapret script ( remittor ) for openwrt)"
+    echo "2) Russia inside. (Youtube and discord, using script itdog)"
     echo "3) Russia outside."
     echo "4) Ukraine. uablacklist.net list"
     echo "5) Skip script creation"
