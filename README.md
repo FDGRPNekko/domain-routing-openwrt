@@ -31,25 +31,25 @@ sh <(wget -O - https://raw.githubusercontent.com/FDGRPNekko/domain-routing-openw
 
 ### Запуск
 ```
-wget -O - https://raw.githubusercontent.com/itdoginfo/domain-routing-openwrt/master/getdomains-check.sh | sh
+wget -O - https://raw.githubusercontent.com/FDGRPNekko/domain-routing-openwrt/master/getdomains-check.sh | sh
 ```
 
 По-умолчанию запускается на русском языке. Если нужно запустить на английском, то после `sh` нужно добавить `-s --lang en`. Аналогично для проверок на подмену DNS и создания дампа.
 
 ```
-wget -O - https://raw.githubusercontent.com/itdoginfo/domain-routing-openwrt/master/getdomains-check.sh | sh -s --lang en
+wget -O - https://raw.githubusercontent.com/FDGRPNekko/domain-routing-openwrt/master/getdomains-check.sh | sh -s --lang en
 ```
 
 ### Запустить с проверкой на подмену DNS
 ```
-wget -O - https://raw.githubusercontent.com/itdoginfo/domain-routing-openwrt/master/getdomains-check.sh | sh -s dns
+wget -O - https://raw.githubusercontent.com/FDGRPNekko/domain-routing-openwrt/master/getdomains-check.sh | sh -s dns
 ```
 
 ### Запустить с созданием dump
 Все чувствительные переменные затираются.
 
 ```
-wget -O - https://raw.githubusercontent.com/itdoginfo/domain-routing-openwrt/master/getdomains-check.sh | sh -s dump
+wget -O - https://raw.githubusercontent.com/FDGRPNekko/domain-routing-openwrt/master/getdomains-check.sh | sh -s dump
 ```
 
 Поиск ошибок вручную: https://habr.com/ru/post/702388/
@@ -62,7 +62,7 @@ ansible-galaxy role install itdoginfo.domain_routing_openwrt
 
 Примеры playbooks
 
-Wireguard, only domains, stubby, Russia, acces from wg network (пример 192.168.80.0/24), host 192.168.1.1
+Wireguard, only domains, stubby, Russia, acces from wg network (пример 10.0.0.2/24)
 ```
 - hosts: 192.168.1.1
   remote_user: root
@@ -134,6 +134,7 @@ service getdomains start
 - OpenWrt 21.02.7
 - OpenWrt 22.03.5
 - OpenWrt 23.05.2
+- OpenWRT 24.10.2
 
 ## Выбор туннеля
 - Wireguard настраивается автоматически через переменные
