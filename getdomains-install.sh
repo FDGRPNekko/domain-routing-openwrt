@@ -596,10 +596,11 @@ add_packages() {
 add_getdomains() {
     echo "Choose you country"
     echo "Select:"
-    echo "1) Russia inside. (No Youtube)"
-    echo "2) Russia outside."
-    echo "3) Ukraine. uablacklist.net list"
-    echo "4) Skip script creation"
+    echo "1) Russia inside. (No Youtube, using zapret script ( remittor ) for openwrt)"
+    echo "2) Russia inside. (Youtube, using script itdog)"
+    echo "3) Russia outside."
+    echo "4) Ukraine. uablacklist.net list"
+    echo "5) Skip script creation"
 
     while true; do
     read -r -p '' COUNTRY
@@ -610,17 +611,22 @@ add_getdomains() {
             break
             ;;
 
-        2)
+        2) 
+            COUNTRY=russia_inside_itdog
+            break
+            ;;
+
+        3)
             COUNTRY=russia_outside
             break
             ;;
 
-        3) 
+        4) 
             COUNTRY=ukraine
             break
             ;;
 
-        4) 
+        5) 
             echo "Skiped"
             COUNTRY=0
             break
@@ -634,6 +640,8 @@ add_getdomains() {
 
     if [ "$COUNTRY" == 'russia_inside' ]; then
         EOF_DOMAINS=DOMAINS=https://raw.githubusercontent.com/FDGRPNekko/allow-domains/main/Russia/inside-dnsmasq-nfset.lst
+    elif [ "$COUNTRY" == 'russia_inside_itdog' ]; then
+        EOF_DOMAINS=DOMAINS=https://raw.githubusercontent.com/itdoginfo/allow-domains/main/Russia/inside-dnsmasq-nfset.lst
     elif [ "$COUNTRY" == 'russia_outside' ]; then
         EOF_DOMAINS=DOMAINS=https://raw.githubusercontent.com/FDGRPNekko/allow-domains/main/Russia/outside-dnsmasq-nfset.lst
     elif [ "$COUNTRY" == 'ukraine' ]; then
